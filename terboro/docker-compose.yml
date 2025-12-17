@@ -5,7 +5,7 @@ services:
     image: ghcr.io/robertorincos/terboro:latest
     container_name: terboro_site
     ports:
-      - "82:82"
+      - "82:80"
     restart: always
     environment:
       - NODE_ENV=production
