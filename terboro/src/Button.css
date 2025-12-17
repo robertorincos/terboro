@@ -1,0 +1,12 @@
+.botao {
+  --btn-size: clamp(100px, 10vw, 200px);
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 50%;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 5px solid rgb(0, 255, 255);
+}

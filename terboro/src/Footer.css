@@ -15,3 +15,29 @@
   display: block;
   object-fit: cover;
 }
+
+.footer-buttons {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+  z-index: 11;
+  pointer-events: none;
+}
+
+.footer-buttons .botao {
+  pointer-events: auto;
+}
+
+.button-left {
+  justify-self: start;
+  margin-left: min(6vw, 64px);
+  transform: translateY(-28%);
+}
+
+.button-right {
+  justify-self: end;
+  margin-right: min(6vw, 64px);
+  transform: translateY(-28%);
+}

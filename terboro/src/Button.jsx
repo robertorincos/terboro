@@ -1,9 +1,9 @@
 import './Button.css'
 
-function Button() {
+function Button({ className }) {
 
   return (
-    <button type="button" className='botao'>Click Me!</button>
+    <button type="button" className={`botao ${className || ''}`}>Click Me!</button>
   )
 }
 
