@@ -1,0 +1,17 @@
+.pesao {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 10;
+}
+
+.barraFooter {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
