@@ -1,0 +1,73 @@
+.main-menu {
+  width: min(1200px, 92vw);
+  margin: 0vh auto 28vh; /* bottom space for footer */
+}
+
+.top-section {
+  display: flex;
+  justify-content: center;
+}
+
+.channels {
+  width: 100%;
+}
+
+.channels-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: min(2.2vw, 18px);
+}
+
+.channel-card {
+  position: relative;
+  background: linear-gradient(180deg, #f6f7f8 0%, #e6e9ee 60%, #d9dee6 100%);
+  border-radius: min(2.2vw, 18px);
+  border: 2px solid #cbd3dd;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.8),
+              0 4px 12px rgba(0, 0, 0, 0.15);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.channel-card.blank {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2f7 70%, #e2e8f0 100%);
+}
+
+.channel-card.occupied .channel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.channel-card .hover-layer {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at top, rgba(255,255,255,0.45), transparent 60%);
+  opacity: 0.6;
+  transition: opacity 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+  pointer-events: none;
+}
+
+.channel-card:hover {
+  border-color: #a6b2c3;
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.9),
+              0 8px 18px rgba(0, 0, 0, 0.2);
+  transform: translateY(-2px);
+}
+
+.channel-card:hover .hover-layer {
+  opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+  .channels-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .channels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
