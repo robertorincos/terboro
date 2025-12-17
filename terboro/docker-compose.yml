@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   terboro:
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: ghcr.io/robertorincos/terboro:latest
     container_name: terboro_site
     ports:
       - "82:82"
