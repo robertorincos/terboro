@@ -1,7 +1,12 @@
-.carta{
-    background-color: rgb(0, 58, 216);
-    border: 2px solid;
-    border-radius: 15px;
-    padding: 10px;
-    color: white;
+.carta {
+  background-color: rgb(0, 58, 216);
+  border: 2px solid;
+  border-radius: clamp(8px, 2vw, 15px);
+  padding: clamp(8px, 2vw, 16px);
+  color: white;
+  
+  /* Responsividade do texto */
+  font-size: var(--font-size-base, 1rem);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }

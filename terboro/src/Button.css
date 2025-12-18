@@ -1,12 +1,36 @@
 .botao {
-  --btn-size: clamp(100px, 10vw, 200px);
+  --btn-size: clamp(60px, 10vw, 200px);
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 50%;
   width: var(--btn-size);
   height: var(--btn-size);
   cursor: pointer;
-  font-size: 12px;
+  font-size: clamp(10px, 2vw, 14px);
   font-weight: bold;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: 5px solid rgb(0, 255, 255);
+  border: clamp(2px, 0.5vw, 5px) solid rgb(0, 255, 255);
+  
+  /* Melhorias para touch */
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: transform 150ms ease, box-shadow 150ms ease;
+}
+
+.botao:active {
+  transform: scale(0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+@media (hover: hover) {
+  .botao:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .botao {
+    --btn-size: clamp(50px, 15vw, 80px);
+  }
 }

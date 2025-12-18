@@ -7,13 +7,17 @@
   overflow: hidden;
   line-height: 0;
   z-index: 10;
+  /* Evita sobreposição com barras do navegador em mobile */
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .barraFooter {
   width: 100%;
   height: auto;
+  max-height: 25vh; /* Limita altura em telas pequenas */
   display: block;
   object-fit: cover;
+  object-position: top;
 }
 
 .footer-buttons {
@@ -24,6 +28,7 @@
   align-items: end;
   z-index: 11;
   pointer-events: none;
+  padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
 .footer-buttons .botao {
@@ -32,12 +37,49 @@
 
 .button-left {
   justify-self: start;
-  margin-left: min(6vw, 64px);
+  margin-left: clamp(16px, 6vw, 64px);
   transform: translateY(-28%);
 }
 
 .button-right {
   justify-self: end;
-  margin-right: min(6vw, 64px);
+  margin-right: clamp(16px, 6vw, 64px);
   transform: translateY(-28%);
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .button-left,
+  .button-right {
+    transform: translateY(-20%);
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .barraFooter {
+    max-height: 20vh;
+  }
+  
+  .button-left {
+    margin-left: clamp(12px, 4vw, 32px);
+    transform: translateY(-15%);
+  }
+  
+  .button-right {
+    margin-right: clamp(12px, 4vw, 32px);
+    transform: translateY(-15%);
+  }
+}
+
+/* Mobile pequeno */
+@media (max-width: 380px) {
+  .barraFooter {
+    max-height: 18vh;
+  }
+  
+  .button-left,
+  .button-right {
+    transform: translateY(-10%);
+  }
 }
