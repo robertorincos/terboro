@@ -1,9 +1,11 @@
 import './Button.css'
 
-function Button({ className }) {
+function Button({ className, children }) {
 
   return (
-    <button type="button" className={`botao ${className || ''}`}>Click Me!</button>
+    <button type="button" className={`botao ${className || ''}`}>
+      {children || 'Click Me!'}
+    </button>
   )
 }
 

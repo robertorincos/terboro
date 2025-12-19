@@ -1,30 +1,52 @@
 .botao {
   --btn-size: clamp(60px, 10vw, 200px);
-  background-color: rgba(255, 255, 255, 0.9);
+  
+  /* Wii Style Gradient */
+  background: linear-gradient(180deg, #ffffff 0%, #ebebeb 50%, #b1b1b1 100%);
   border-radius: 50%;
   width: var(--btn-size);
   height: var(--btn-size);
   cursor: pointer;
-  font-size: clamp(10px, 2vw, 14px);
-  font-weight: bold;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  border: clamp(2px, 0.5vw, 5px) solid rgb(0, 255, 255);
   
-  /* Melhorias para touch */
+  /* Text Styling */
+  color: #666;
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: clamp(12px, 2.5vw, 18px);
+  font-weight: bold;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+  
+  /* Border & Glow */
+  border: 6px solid #34beed;
+  box-shadow: 
+    inset 0 1px 2px rgba(255,255,255,1),
+    0 2px 5px rgba(0,0,0,0.15);
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 5px;
+  
+  /* Touch & Transitions */
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
-  transition: transform 150ms ease, box-shadow 150ms ease;
+  transition: all 0.2s ease;
+  outline: none;
 }
 
 .botao:active {
-  transform: scale(0.95);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(180deg, #dcdcdc 0%, #e6e6e6 100%);
 }
 
 @media (hover: hover) {
   .botao:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    /* Wii Blue Glow */
+    border-color: #34beed;
+    box-shadow: 
+      0 0 15px rgba(52, 190, 237, 0.6),
+      inset 0 0 10px rgba(255,255,255,0.5);
+    color: #34beed;
   }
 }
 
@@ -32,5 +54,6 @@
 @media (max-width: 480px) {
   .botao {
     --btn-size: clamp(50px, 15vw, 80px);
+    border-width: 4px;
   }
 }
