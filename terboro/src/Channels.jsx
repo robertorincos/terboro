@@ -1,9 +1,15 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 import './Channels.css'
 import reactLogo from './assets/react.svg'
+import { useAudio } from './hooks/useAudio'
+import themeMusic from './assets/sounds/theme.mp3'
+import hoverSoundSrc from './assets/sounds/hover.mp3'
+import clickSoundSrc from './assets/sounds/click.mp3'
 
 function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
   const [style, setStyle] = useState({});
+  const { play: playHover } = useAudio(hoverSoundSrc, { volume: 0.5 });
+  const { play: playClick } = useAudio(clickSoundSrc, { volume: 0.5 });
 
   useLayoutEffect(() => {
     if (isExpanded && originRect) {
@@ -48,7 +54,11 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
     <div 
       className={`channel-card ${occupied ? 'occupied' : 'blank'} ${isExpanded ? 'expanded' : ''}`} 
       data-id={id}
-      onClick={onClick}
+      onClick={(e) => {
+        playClick();
+        onClick(e);
+      }}
+      onMouseEnter={playHover}
       style={style}
     >
       {occupied && (
@@ -60,7 +70,9 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
         <div className="card-content" onClick={(e) => e.stopPropagation()}>
             <div className="card-header">
                 <h3>Module {id}</h3>
-                <button className="close-btn" onClick={(e) => {
+                <button className="close-btn" 
+                  onMouseEnter={playHover}
+                  onClick={(e) => {
                     e.stopPropagation();
                     onClick(e); 
                 }}>×</button>
@@ -78,6 +90,8 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
 function Channels() {
   const [expandedId, setExpandedId] = useState(null);
   const [originRect, setOriginRect] = useState(null);
+
+  useAudio(themeMusic, { volume: 0.3, loop: true, autoplay: true });
 
   const items = [
     { id: 1, occupied: true, img: reactLogo },
