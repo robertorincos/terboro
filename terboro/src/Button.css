@@ -6,7 +6,7 @@
   border-radius: 50%;
   width: var(--btn-size);
   height: var(--btn-size);
-  cursor: pointer;
+  cursor: var(--custom-cursor);
   
   /* Text Styling */
   color: #666;

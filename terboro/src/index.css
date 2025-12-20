@@ -26,15 +26,22 @@
   --spacing-md: clamp(1rem, 3vw, 1.5rem);
   --spacing-lg: clamp(1.5rem, 4vw, 2rem);
   --spacing-xl: clamp(2rem, 5vw, 3rem);
+
+  --custom-cursor: url('./assets/cursor.png') 10 10, auto;
 }
 
 a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
+  cursor: var(--custom-cursor);
 }
 a:hover {
   color: #535bf2;
+}
+
+button {
+  cursor: var(--custom-cursor);
 }
 
 body {
@@ -44,6 +51,7 @@ body {
   min-width: 320px;
   min-height: 100vh;
   min-height: 100dvh; /* Dynamic viewport height para mobile */
+  cursor: var(--custom-cursor);
 }
 
 /* Utilitários responsivos */
