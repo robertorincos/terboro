@@ -1,12 +1,14 @@
 import { useState, useEffect, useLayoutEffect } from 'react'
 import './Channels.css'
 import reactLogo from './assets/react.svg'
+import perfil from './assets/perfil.png'
+import gameaten from './assets/gameaten.png'
 import { useAudio } from './hooks/useAudio'
 import themeMusic from './assets/sounds/theme.mp3'
 import hoverSoundSrc from './assets/sounds/hover.mp3'
 import clickSoundSrc from './assets/sounds/click.mp3'
 
-function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
+function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect, title, description, link, linkText }) {
   const [style, setStyle] = useState({});
   const { play: playHover } = useAudio(hoverSoundSrc, { volume: 0.5 });
   const { play: playClick } = useAudio(clickSoundSrc, { volume: 0.5 });
@@ -69,7 +71,7 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
       {isExpanded && (
         <div className="card-content" onClick={(e) => e.stopPropagation()}>
             <div className="card-header">
-                <h3>Module {id}</h3>
+                <h3>{title || `Module ${id}`}</h3>
                 <button className="close-btn" 
                   onMouseEnter={playHover}
                   onClick={(e) => {
@@ -78,8 +80,12 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect }) {
                 }}>×</button>
             </div>
             <div className="card-body">
-                <p>This is the customizable content for module {id}.</p>
-                <p>You can add more details, controls, or information here.</p>
+                <p>{description || `This is the customizable content for module ${id}.`}</p>
+                {link && (
+                    <a href={link} target="_blank" rel="noopener noreferrer" style={{ color: '#646cff', textDecoration: 'underline', marginTop: '10px', display: 'block' }}>
+                        {linkText || "Visit"}
+                    </a>
+                )}
             </div>
         </div>
       )}
@@ -94,13 +100,29 @@ function Channels() {
   useAudio(themeMusic, { volume: 0.3, loop: true, autoplay: true });
 
   const items = [
-    { id: 1, occupied: true, img: reactLogo },
-    { id: 2, occupied: true, img: reactLogo },
+    { 
+      id: 1, 
+      occupied: true, 
+      img: perfil,
+      title: "Roberto's GitHub",
+      description: "Preview of my github and a link to go to my github @robertorincos",
+      link: "https://github.com/robertorincos",
+      linkText: "Go to @robertorincos"
+    },
+    { 
+      id: 2, 
+      occupied: true, 
+      img: gameaten,
+      title: "Gameaten",
+      description: "Go to my other website gameaten.terboro.com",
+      link: "https://gameaten.terboro.com",
+      linkText: "Go to Gameaten"
+    },
     { id: 3, occupied: false },
-    { id: 4, occupied: true, img: reactLogo },
+    { id: 4, occupied: false },
     { id: 5, occupied: false },
     { id: 6, occupied: false },
-    { id: 7, occupied: true, img: reactLogo },
+    { id: 7, occupied: false },
     { id: 8, occupied: false },
   ]
 
@@ -130,6 +152,10 @@ function Channels() {
                   isExpanded={expandedId === it.id}
                   onClick={(e) => handleCardClick(it.id, e)}
                   originRect={originRect}
+                  title={it.title}
+                  description={it.description}
+                  link={it.link}
+                  linkText={it.linkText}
                 />
               </div>
             ))}
