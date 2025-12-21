@@ -104,10 +104,10 @@ function Channels() {
       id: 1, 
       occupied: true, 
       img: perfil,
-      title: "Roberto's GitHub",
-      description: "Preview of my github and a link to go to my github @robertorincos",
+      title: "Terboro GitHub",
+      description: "My github profile where I share my projects.",
       link: "https://github.com/robertorincos",
-      linkText: "Go to @robertorincos"
+      linkText: "Github"
     },
     { 
       id: 2, 
