@@ -1,7 +1,13 @@
 import { useEffect, useRef } from 'react';
+import { useSound } from '../context/SoundContext';
 
 export const useAudio = (src, { volume = 1.0, loop = false, autoplay = false } = {}) => {
   const audio = useRef(new Audio(src));
+  const { isMuted } = useSound();
+
+  useEffect(() => {
+    audio.current.muted = isMuted;
+  }, [isMuted]);
 
   useEffect(() => {
     audio.current.volume = volume;
@@ -40,6 +46,7 @@ export const useAudio = (src, { volume = 1.0, loop = false, autoplay = false } =
         // If already playing, clone it to play overlapping sounds (good for rapid hover)
         const clone = audio.current.cloneNode();
         clone.volume = volume;
+        clone.muted = isMuted;
         clone.play().catch(e => console.error("Audio clone play failed", e));
     }
   };

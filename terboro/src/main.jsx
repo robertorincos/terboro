@@ -5,12 +5,15 @@ import App from './App.jsx'
 import Channels from './Channels.jsx'
 import Footer from './Footer.jsx'
 import CustomCursor from './CustomCursor.jsx'
+import { SoundProvider } from './context/SoundContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    {/* <App /> */}
-    <CustomCursor />
-    <Channels />
-    <Footer />
+    <SoundProvider>
+      {/* <App /> */}
+      <CustomCursor />
+      <Channels />
+      <Footer />
+    </SoundProvider>
   </StrictMode>,
 )
