@@ -4,6 +4,7 @@ import reactLogo from './assets/react.svg'
 import perfil from './assets/perfil.png'
 import github from './assets/github.jpg'
 import gameaten from './assets/gameaten.png'
+import contato from './assets/contato.png'
 import { useAudio } from './hooks/useAudio'
 import themeMusic from './assets/sounds/theme.mp3'
 import hoverSoundSrc from './assets/sounds/hover.mp3'
@@ -82,7 +83,7 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect, title
                 }}>×</button>
             </div>
             <div className="card-body">
-                <p>{description || `This is the customizable content for module ${id}.`}</p>
+                {typeof description === 'string' ? <p>{description || `This is the customizable content for module ${id}.`}</p> : description}
                 {link && (
                     <a href={link} target="_blank" rel="noopener noreferrer" style={{ color: '#646cff', textDecoration: 'underline', marginTop: '10px', display: 'block' }}>
                         {linkText || "Visit"}
@@ -121,7 +122,28 @@ function Channels() {
       link: "https://gameaten.terboro.com",
       linkText: "Go to Gameaten"
     },
-    { id: 3, occupied: false },
+    { 
+      id: 3, 
+      occupied: true, 
+      img: contato,
+      title: "Contact Me",
+      description: (
+        <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', flexWrap: 'wrap', marginTop: '20px' }}>
+          <a href="https://discord.com/users/395051820084625408" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/Discord-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="Discord"/>
+          </a>
+          <a href="https://www.linkedin.com/in/roberto-silveira-519b1a238/" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
+          </a>
+          <a href="https://www.youtube.com/@Terboroo" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube"/>
+          </a>
+          <a href="https://terboroo.itch.io" target="_blank" rel="noopener noreferrer">
+            <img src="https://img.shields.io/badge/itch.io-FA5C5C?style=for-the-badge&logo=itchdotio&logoColor=white" alt="itch.io"/>
+          </a>
+        </div>
+      ),
+    },
     { id: 4, occupied: false },
     { id: 5, occupied: false },
     { id: 6, occupied: false },
