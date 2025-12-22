@@ -7,6 +7,7 @@ import { useAudio } from './hooks/useAudio'
 import themeMusic from './assets/sounds/theme.mp3'
 import hoverSoundSrc from './assets/sounds/hover.mp3'
 import clickSoundSrc from './assets/sounds/click.mp3'
+import backSoundSrc from './assets/sounds/back.mp3'
 
 function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect, title, description, link, linkText }) {
   const [style, setStyle] = useState({});
@@ -96,6 +97,7 @@ function ChannelCard({ occupied, img, id, isExpanded, onClick, originRect, title
 function Channels() {
   const [expandedId, setExpandedId] = useState(null);
   const [originRect, setOriginRect] = useState(null);
+  const { play: playBack } = useAudio(backSoundSrc, { volume: 0.5 });
 
   useAudio(themeMusic, { volume: 0.3, loop: true, autoplay: true });
 
@@ -128,6 +130,7 @@ function Channels() {
 
   const handleCardClick = (id, e) => {
     if (expandedId === id) {
+      playBack();
       setExpandedId(null);
       setOriginRect(null);
     } else {
@@ -162,7 +165,7 @@ function Channels() {
           </div>
         </div>
       </div>
-      {expandedId && <div className="overlay" onClick={() => { setExpandedId(null); setOriginRect(null); }}></div>}
+      {expandedId && <div className="overlay" onClick={() => { playBack(); setExpandedId(null); setOriginRect(null); }}></div>}
     </div>
   )
 }
