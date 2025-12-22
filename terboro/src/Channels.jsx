@@ -2,6 +2,7 @@ import { useState, useEffect, useLayoutEffect } from 'react'
 import './Channels.css'
 import reactLogo from './assets/react.svg'
 import perfil from './assets/perfil.png'
+import github from './assets/github.jpg'
 import gameaten from './assets/gameaten.png'
 import { useAudio } from './hooks/useAudio'
 import themeMusic from './assets/sounds/theme.mp3'
@@ -105,7 +106,7 @@ function Channels() {
     { 
       id: 1, 
       occupied: true, 
-      img: perfil,
+      img: github,
       title: "Terboro GitHub",
       description: "My github profile where I share my projects.",
       link: "https://github.com/robertorincos",
