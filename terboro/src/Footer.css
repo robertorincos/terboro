@@ -1,85 +1,93 @@
-.pesao {
+.footer-container {
   position: fixed;
   bottom: 0;
   left: 0;
-  right: 0;
   width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  z-index: 10;
-  /* Evita sobreposição com barras do navegador em mobile */
-  padding-bottom: env(safe-area-inset-bottom, 0);
-}
-
-.barraFooter {
-  width: 100%;
-  height: auto;
-  max-height: 25vh; /* Limita altura em telas pequenas */
-  display: block;
-  object-fit: cover;
-  object-position: top;
-}
-
-.footer-buttons {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: end;
-  z-index: 11;
+  display: flex;
+  align-items: flex-end;
+  z-index: 100;
+  filter: drop-shadow(0px -2px 5px rgba(0,0,0,0.2));
   pointer-events: none;
   padding-bottom: env(safe-area-inset-bottom, 0);
 }
 
-.footer-buttons .botao {
+.footer-left, .footer-right {
   pointer-events: auto;
+  width: clamp(140px, 30vw, 280px);
+  height: clamp(90px, 18vw, 160px);
+  background: linear-gradient(180deg, #e6e6e6 0%, #b0b0b0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-top: 5px solid #34beed;
+  z-index: 1;
 }
 
-.button-left {
-  justify-self: start;
-  margin-left: clamp(16px, 6vw, 64px);
-  transform: translateY(-28%);
+.footer-left {
+  border-top-right-radius: 100px;
+  border-right: 5px solid #34beed;
+  margin-right: -5px; /* Overlap to hide vertical seam */
 }
 
-.button-right {
-  justify-self: end;
-  margin-right: clamp(16px, 6vw, 64px);
-  transform: translateY(-28%);
+.footer-right {
+  border-top-left-radius: 100px;
+  border-left: 5px solid #34beed;
+  margin-left: -5px; /* Overlap to hide vertical seam */
 }
 
-/* Tablets */
-@media (max-width: 900px) {
-  .button-left,
-  .button-right {
-    transform: translateY(-20%);
-  }
+.footer-middle {
+  pointer-events: auto;
+  flex: 1;
+  height: clamp(40px, 8vw, 80px);
+  background: linear-gradient(180deg, #e6e6e6 0%, #b0b0b0 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #555;
+  font-family: sans-serif;
+  font-size: clamp(12px, 2vw, 18px);
+  text-align: center;
+  padding: 0 10px;
+  border-top: 5px solid #34beed;
+  position: relative;
+  z-index: 2; /* Sit on top of the side borders */
 }
 
-/* Mobile */
-@media (max-width: 640px) {
-  .barraFooter {
-    max-height: 20vh;
+.button-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.button-content span {
+  font-size: 14px;
+  font-weight: bold;
+  color: #555;
+}
+
+/* Override Button positioning if needed, though flexbox handles it now */
+.footer-container .button-left, 
+.footer-container .button-right {
+  margin: 0 !important;
+  transform: none !important;
+  --btn-size: clamp(80px, 12vw, 130px);
+}
+
+@media (max-width: 600px) {
+  .footer-left, .footer-right {
+    border-top-right-radius: 60px;
+    border-top-left-radius: 60px;
   }
   
-  .button-left {
-    margin-left: clamp(12px, 4vw, 32px);
-    transform: translateY(-15%);
+  .footer-left {
+      border-top-right-radius: 60px;
+      border-top-left-radius: 0;
   }
-  
-  .button-right {
-    margin-right: clamp(12px, 4vw, 32px);
-    transform: translateY(-15%);
-  }
-}
-
-/* Mobile pequeno */
-@media (max-width: 380px) {
-  .barraFooter {
-    max-height: 18vh;
-  }
-  
-  .button-left,
-  .button-right {
-    transform: translateY(-10%);
+  .footer-right {
+      border-top-left-radius: 60px;
+      border-top-right-radius: 0;
   }
 }
