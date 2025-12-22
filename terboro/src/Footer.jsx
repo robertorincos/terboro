@@ -24,7 +24,7 @@ function Footer() {
       </div>
       
       <div className='footer-middle'>
-         <span className="footer-description">Footer description goes here</span>
+         <span className="footer-description">©Terboro 2026</span>
       </div>
 
       <div className='footer-right'>
