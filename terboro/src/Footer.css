@@ -15,7 +15,7 @@
   pointer-events: auto;
   width: clamp(140px, 30vw, 280px);
   height: clamp(90px, 18vw, 160px);
-  background: linear-gradient(180deg, #e6e6e6 0%, #b0b0b0 100%);
+  background: linear-gradient(180deg, var(--footer-bg-start) 0%, var(--footer-bg-end) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,11 +40,11 @@
   pointer-events: auto;
   flex: 1;
   height: clamp(40px, 8vw, 80px);
-  background: linear-gradient(180deg, #e6e6e6 0%, #b0b0b0 100%);
+  background: linear-gradient(180deg, var(--footer-bg-start) 0%, var(--footer-bg-end) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #555;
+  color: var(--footer-text);
   font-family: sans-serif;
   font-size: clamp(12px, 2vw, 18px);
   text-align: center;

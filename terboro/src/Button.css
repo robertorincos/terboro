@@ -2,21 +2,21 @@
   --btn-size: clamp(60px, 10vw, 200px);
   
   /* Wii Style Gradient */
-  background: linear-gradient(180deg, #ffffff 0%, #ebebeb 50%, #b1b1b1 100%);
+  background: linear-gradient(180deg, var(--btn-bg-start) 0%, var(--btn-bg-mid) 50%, var(--btn-bg-end) 100%);
   border-radius: 50%;
   width: var(--btn-size);
   height: var(--btn-size);
   cursor: var(--custom-cursor);
   
   /* Text Styling */
-  color: #666;
+  color: var(--btn-text);
   font-family: "Trebuchet MS", sans-serif;
   font-size: clamp(12px, 2.5vw, 18px);
   font-weight: bold;
-  text-shadow: 0 1px 0 rgba(255,255,255,0.8);
+  text-shadow: var(--btn-text-shadow);
   
   /* Border & Glow */
-  border: 6px solid #34beed;
+  border: 6px solid var(--btn-border);
   box-shadow: 
     inset 0 1px 2px rgba(255,255,255,1),
     0 2px 5px rgba(0,0,0,0.15);
