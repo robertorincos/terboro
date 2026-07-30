@@ -1,5 +1,6 @@
 import './Channels.css'
 import Face from './Face.jsx'
+import Blocks from './Blocks.jsx'
 import { useAudio } from './hooks/useAudio'
 import themeMusic from './assets/sounds/theme.mp3'
 
@@ -11,6 +12,7 @@ function Channels() {
       <div className="top-section">
         <Face />
       </div>
+      <Blocks />
     </div>
   )
 }

@@ -1,0 +1,100 @@
+.blocks-row {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: clamp(24px, 6vw, 64px);
+}
+
+.block-tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(6px, 1.2vw, 10px);
+  text-decoration: none;
+  cursor: var(--custom-cursor);
+  -webkit-tap-highlight-color: transparent;
+  animation: block-idle 3.2s ease-in-out infinite;
+}
+
+.blocks-row > .block-tile:nth-child(1) { animation-delay: 0s; }
+.blocks-row > .block-tile:nth-child(2) { animation-delay: 0.6s; }
+.blocks-row > .block-tile:nth-child(3) { animation-delay: 1.2s; }
+
+.block-label {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: clamp(12px, 2.2vw, 16px);
+  font-weight: bold;
+  color: var(--text-color);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+.block-icon {
+  --tile-size: clamp(90px, 13vw, 140px);
+  display: block;
+  width: var(--tile-size);
+  height: var(--tile-size);
+  border-radius: clamp(18px, 3vw, 28px);
+  border: 3px solid rgba(255, 255, 255, 0.55);
+  background-color: rgba(255, 255, 255, 0.08);
+  background-image: none;
+  background-size: cover;
+  background-position: center;
+  box-shadow:
+    0 10px 16px rgba(0, 0, 0, 0.35),
+    inset 0 1px 2px rgba(255, 255, 255, 0.4);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+@media (hover: hover) {
+  .block-tile:hover .block-icon {
+    transform: scale(1.06);
+    border-color: #34beed;
+    box-shadow:
+      0 0 16px rgba(52, 190, 237, 0.65),
+      0 12px 18px rgba(0, 0, 0, 0.4),
+      inset 0 1px 2px rgba(255, 255, 255, 0.5);
+  }
+
+  .block-tile:hover .block-label {
+    color: #34beed;
+  }
+}
+
+.block-tile:active .block-icon {
+  transform: scale(0.93);
+}
+
+.block-tile--empty {
+  cursor: default;
+  opacity: 0.45;
+}
+
+.block-tile--empty .block-icon {
+  background-color: rgba(128, 128, 128, 0.08);
+  border: 3px dashed rgba(128, 128, 128, 0.5);
+  box-shadow: none;
+}
+
+@keyframes block-idle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .block-tile {
+    animation: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .blocks-row {
+    gap: clamp(16px, 5vw, 28px);
+  }
+}
