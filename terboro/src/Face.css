@@ -1,0 +1,27 @@
+.face-svg {
+  display: block;
+  width: min(520px, 70vw);
+  height: auto;
+  margin: 0 auto;
+  cursor: var(--custom-cursor);
+}
+
+.face-ear,
+.face-head {
+  fill: #fc0;
+  fill-rule: evenodd;
+}
+
+.face-eye {
+  fill: #fff;
+  stroke: #000;
+  stroke-width: 18px;
+  fill-rule: evenodd;
+}
+
+.face-pupil {
+  fill: #000;
+  stroke: #000;
+  stroke-width: 15px;
+  fill-rule: evenodd;
+}

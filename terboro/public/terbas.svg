@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="680" height="600" viewBox="590 230 680 600">
+  <defs>
+    <style>
+      .cls-1, .cls-2, .cls-3 {
+        fill: #fc0;
+      }
+
+      .cls-1, .cls-2, .cls-3, .cls-4, .cls-5 {
+        fill-rule: evenodd;
+      }
+
+      .cls-1 {
+        filter: url(#filter);
+      }
+
+      .cls-2 {
+        filter: url(#filter-2);
+      }
+
+      .cls-4 {
+        fill: #fff;
+        stroke-width: 18px;
+      }
+
+      .cls-4, .cls-5 {
+        stroke: #000;
+      }
+
+      .cls-5 {
+        stroke-width: 15px;
+      }
+    </style>
+    <filter id="filter" x="921" y="256.812" width="316" height="444.188" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dy="14" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="2.646"/>
+      <feFlood result="flood" flood-opacity="0.67"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+    <filter id="filter-2" x="618" y="441.5" width="619" height="359.5" filterUnits="userSpaceOnUse">
+      <feOffset result="offset" dy="14" in="SourceAlpha"/>
+      <feGaussianBlur result="blur" stdDeviation="2.646"/>
+      <feFlood result="flood" flood-opacity="0.67"/>
+      <feComposite result="composite" operator="in" in2="blur"/>
+      <feBlend result="blend" in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Artboard_1" data-name="Artboard 1">
+    <path class="cls-1" d="M1199.34,671.87c49.52-28.918,35.78-142.773-19.06-319.2-14.58-46.9-33.77-88.271-66.7-95.285-21.25-4.526-60.55,18.216-109.58,71.464-43.532,47.282-74.222,96.368-76.224,114.342C913.42,572.018,1126.02,714.68,1199.34,671.87Z"/>
+    <path class="cls-2" d="M927.012,441.485c167.318,0,302.958,75.57,302.958,168.79s-135.64,168.79-302.958,168.79S624.056,703.5,624.056,610.275,759.694,441.485,927.012,441.485Z"/>
+    <path class="cls-3" d="M652.641,671.87c-49.525-28.918-35.788-142.773,19.057-319.2,14.579-46.9,33.772-88.271,66.7-95.285,21.252-4.526,60.549,18.216,109.578,71.464C891.51,376.127,922.2,425.213,924.2,443.187,938.558,572.018,725.957,714.68,652.641,671.87Z"/>
+    <path class="cls-4" d="M790.8,528.943c65.78,0,119.106,25.6,119.106,57.171s-53.326,57.17-119.106,57.17S671.7,617.688,671.7,586.114,725.024,528.943,790.8,528.943Z"/>
+    <path class="cls-4" d="M1078.52,528.943c65.78,0,119.1,25.6,119.1,57.171s-53.32,57.17-119.1,57.17-119.107-25.6-119.107-57.17S1012.74,528.943,1078.52,528.943Z"/>
+    <path class="cls-5" d="M778.893,528.943c14.472,0,26.2,25.6,26.2,57.171s-11.732,57.17-26.2,57.17-26.2-25.6-26.2-57.17S764.422,528.943,778.893,528.943Z"/>
+    <path class="cls-5" d="M1083.8,528.943c14.48,0,26.21,25.6,26.21,57.171s-11.73,57.17-26.21,57.17-26.2-25.6-26.2-57.17S1069.33,528.943,1083.8,528.943Z"/>
+  </g>
+</svg>
