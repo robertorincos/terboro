@@ -115,3 +115,18 @@ body {
     min-width: 44px;
   }
 }
+
+#root {
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  padding: var(--spacing-md, 1rem);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 480px) {
+  #root {
+    padding: var(--spacing-sm, 0.75rem);
+  }
+}
